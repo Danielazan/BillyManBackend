@@ -9,7 +9,7 @@ const path = require("path")
 require("dotenv").config()
 app = express()
 
-
+app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 // app.use(helmet())
 app.use(express.json())
