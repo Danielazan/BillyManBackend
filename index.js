@@ -4,6 +4,7 @@ const helmet = require("helmet")
 const user = require("./Routes/User")
 const sequelize = require('./database')
 const Machine = require("./Routes/Machines")
+const Teams = require("./Routes/Teams")
 const path = require("path")
 
 require("dotenv").config()
@@ -20,6 +21,7 @@ app.use(express.static("public"))
 // for creating the databse 
 app.use("/api",user)
 app.use('/api',Machine)
+app.use('/api',Teams)
 
 sequelize.sync().then(()=>{
     app.listen(process.env.PORT,(req,res)=>{
